@@ -1,12 +1,13 @@
   <!doctype html>
   <html lang="en">
+    {%  load staticfiles %}
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Jekyll v3.8.5">
-      <title>Album example · Bootstrap</title>
+      <title>Solomon Richberg</title>
 
       <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -32,20 +33,20 @@
     <body>
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Solomon Richberg</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Solomon Richberg</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="#">Twitter</a>
+          <a class="nav-link" href="https://github.com/Solly64">GitHub</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Videos</a>
+          <a class="nav-link" href="{% static 'podcast.jpg' %}">Videos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Blog</a>
+          <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </li>
         <li class="nav-item">
         </li>
@@ -64,6 +65,7 @@
         <p>
           <a href="mailto:richbergsolomon@yahoo.com" class="btn btn-primary my-2">Email Me</a>
         </p>
+        <img src="{% static 'business_advantages_of_data_analysis.jpg' %}" height="300" />
       </div>
     </section>
 
