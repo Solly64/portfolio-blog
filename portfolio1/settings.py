@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'item.apps.ItemConfig',
     'blog.apps.BlogConfig',
     'jobs.apps.JobsConfig',
     'django.contrib.admin',
@@ -39,7 +40,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height':500,
+        'toolbar_Custom': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'], ['Source'],
+        ],
+    },
+    'special': {
+        'toolbar': 'Special',
+        'toolbar_Special': [
+            ['Bold', 'CodeSnippet', 'Youtube'],
+        ],
+        'extraPlugins' : ',' .join(['codesnippet', 'youtube']),
+    }
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,13 +105,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfoliodb1',
-<<<<<<< HEAD
         'USER': 'postgres',
         'PASSWORD': 'Oregon2726!blue4341',
-=======
-        'USER': 'djangodbman',
-        'PASSWORD': 'abcdefg',
->>>>>>> 6197809212dbfc2f079923fb2574e58662774fb4
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -139,7 +160,14 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'templates'),
+# )
+# VIDEO_ROOT = os.path.join(BASE_DIR, 'item')
+# VIDEO_URL = '/item/'
+
+
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     pass
